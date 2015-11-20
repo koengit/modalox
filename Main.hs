@@ -39,7 +39,7 @@ proveModal say p =
 --------------------------------------------------------------------------------
 
 main :: IO ()
-main = print =<< proveModal putStrLn hats
+main = print =<< proveModal putStrLn muddy
 
 --------------------------------------------------------------------------------
 
@@ -67,7 +67,7 @@ bar2 =
     ) .->. 
       box alice (a .&. b)
 
-hats =
+muddy =
    ( box common ( (a .|. b .|. c)
               .&. whether alice   b
               .&. whether alice   c
@@ -75,12 +75,9 @@ hats =
               .&. whether bob     c
               .&. whether charlie a
               .&. whether charlie b
-              .&. nt (whether bob b)
-              .&. nt (whether charlie c)
+              .&. nt (box bob b)
+              .&. nt (box charlie c)
                 )
- .&. a
- .&. nt b
- .&. nt c
    ) .->.
      box alice a
 
