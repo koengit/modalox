@@ -84,6 +84,9 @@ hats =
    ) .->.
      box alice a
 
+bad =
+  box common a .->. box common a -- crashes
+
 --------------------------------------------------------------------------------
 
 a = Atom "a"
